@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TouchDown WebServer Beta Readme File</title>
+</head>
+
+<body>
+<p align="center"><strong><u>TouchDown Web Server Beta Info</u></strong></p>
+<p><strong>1. Setup.</strong><br>
+Run WebServer.exe and note the LAN IP address this should only work on 
+your internal network and the devices connected to it . Open web browser
+ on the device of your choice and enter the IP address and the default 
+profile (<em>index.htm found in Data\Docs</em>) will be loaded. Test as required.</p>
+<p><strong>2. Changing / Creating Commands.</strong><br>
+To create your own profile/interface your going to know how to use some 
+basic html even if its just in a text editor - open the default profile 
+with your editor of preference and find the weblinks that start &lt;a 
+href" The command to send a key uses a weblink but in the form of a 
+command -  it must always start with the word <strong>function</strong> this is how the server application knows that your sending a command instead of requesting a webpage.</p>
+<p>The link  must also  have a target set of bottomFrame which tells 
+your browser to open the resulting return information in the bottom 
+frame of the page (<em>leaving the current page unaffected</em>) this 
+has been implemented as the browser requires this return info or it will
+ crash/timeout, so the return info is just your command echoed back - (<em>temp.htm found in Data\Docs and is always required for this so don't delete it</em>).</p>
+<p><strong>3. Examples</strong></p>
+<blockquote>
+  <p>Examples : &lt;a href='function macro("hello");' target="bottomFrame"&gt;<br>
+  Sends the text hello</p>
+  <p>Examples : &lt;a href='function macro("{SPACE}");' target="bottomFrame"&gt;<br>
+  Sends the space key</p>
+  <p>Examples : &lt;a href='function macro("{SPACE}");macro("{UP}");macro("{DOWN}");' target="bottomFrame"&gt;<br>
+  Sends multiple commands space - up - down</p>
+</blockquote>
+<p>As you can see in these example the actual key press/presses are  
+captured in brackets and quotation marks ("keys to send") normal letters
+ or strings of text are sent as seen in example 1 and a default 
+30milliseconds is inserted between each keystroke. 
+The 2nd example shows a special key in this case the space key. The 
+special keys are listed in a table below and must always be enclosed in <span id="search">Parentheses</span>{}.</p>
+<p><strong>4. Table of Special Keys</strong><br>
+TouchDown uses reserved symbols to perform certain additional actions 
+and these are listed below along with other special keys - if its not 
+listed here then no special treatment is required</p>
+<p> '!' - 
+  This tells TouchDown to send an ALT keystroke, therefore &lt;a 
+href='function macro("This   is text!a");' target="bottomFrame"&gt; 
+would send the keys This is text and then press   ALT+a.<br>
+  <br>
+  N.B. Some programs are very choosy about capital letters and ALT   keys if in doubt, use lowercase!<br>
+  <br>
+  '+' - 
+  This tells TouchDown to send a   SHIFT keystroke, therefore &lt;a 
+href='function macro("Hell+o");' target="bottomFrame"&gt; would send the
+ text HellO.&lt;a href='function macro("!+a");' target="bottomFrame"&gt;
+ would send ALT+SHIFT+a.<br>
+  <br>
+  '^' - 
+  This tells TouchDown   to send a CONTROL keystroke, therefore &lt;a 
+href='function macro("^!a");' target="bottomFrame"&gt; would send   
+CTRL+ALT+a.<br>
+  <br>
+  N.B. Some programs are very choosy about capital letters   and CTRL keys if in doubt, use lowercase!<br>
+</p>
+<table align="center" border="1" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+    <td align="center" width="33%">{!}</td>
+    <td width="67%">!</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{#}</td>
+    <td width="67%">#</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{+}</td>
+    <td width="67%">+</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{^}</td>
+    <td width="67%">^</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{{}</td>
+    <td width="67%">{</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{}}</td>
+    <td width="67%">}</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{SPACE}</td>
+    <td width="67%">SPACE</td>
+  </tr>
+  <tr>
+    <td align="center">{ENTER}</td>
+    <td>ENTER key on the main keyboard</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{ALT}</td>
+    <td width="67%">ALT</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{BACKSPACE} or {BS}</td>
+    <td width="67%">BACKSPACE</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{DELETE} or {DEL}</td>
+    <td width="67%">DELETE</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{UP}</td>
+    <td width="67%">Cursor up</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{DOWN}</td>
+    <td width="67%">Cursor down</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{LEFT}</td>
+    <td width="67%">Cursor left</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{RIGHT}</td>
+    <td width="67%">Cursor right</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{HOME}</td>
+    <td width="67%">HOME</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{END}</td>
+    <td width="67%">END</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{ESCAPE} or {ESC}</td>
+    <td width="67%">ESCAPE</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{INSERT} or {INS}</td>
+    <td width="67%">INS</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{PGUP}</td>
+    <td width="67%">PGUP</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{PGDN}</td>
+    <td width="67%">PGDN</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{F1} - {F12}</td>
+    <td width="67%">Function keys</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{TAB}</td>
+    <td width="67%">TAB</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{PRINTSCREEN}</td>
+    <td width="67%">PRINTSCR</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{LWIN}</td>
+    <td width="67%">Left Windows key</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{RWIN}</td>
+    <td width="67%">Right Windows key</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMLOCK on}</td>
+    <td width="67%">NUMLOCK toggle on/off</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{BREAK}</td>
+    <td width="67%">for Ctrl+Break processing</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{PAUSE}</td>
+    <td width="67%">PAUSE</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{CAPSLOCK on}</td>
+    <td width="67%">CAPSLOCK toggle on/off</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPAD0} - {NUMPAD9}</td>
+    <td width="67%">Numpad digits</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPADMULT}</td>
+    <td width="67%">Numpad Multiply</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPADADD}</td>
+    <td width="67%">Numpad Add</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPADSUB}</td>
+    <td width="67%">Numpad Subtract</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPADDIV}</td>
+    <td width="67%">Numpad Divide</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{NUMPADDOT}</td>
+    <td width="67%">Numpad period</td>
+  </tr>
+  <tr>
+    <td align="center">{NUMPADENTER}</td>
+    <td>Enter key on the numpad</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{APPSKEY}</td>
+    <td width="67%">Windows App key</td>
+  </tr>
+  <tr>
+    <td align="center">{LALT}</td>
+    <td>Left ALT key</td>
+  </tr>
+  <tr>
+    <td align="center">{RALT}</td>
+    <td>Right ALT key</td>
+  </tr>
+  <tr>
+    <td align="center">{LCTRL}</td>
+    <td>Left CTRL key</td>
+  </tr>
+  <tr>
+    <td align="center">{RCTRL}</td>
+    <td>Right CTRL key</td>
+  </tr>
+  <tr>
+    <td align="center">{LSHIFT}</td>
+    <td>Left Shift key</td>
+  </tr>
+  <tr>
+    <td align="center">{RSHIFT}</td>
+    <td>Right Shift key</td>
+  </tr>
+  <tr>
+    <td align="center">{SLEEP}</td>
+    <td>Computer SLEEP key</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{ALTDOWN}</td>
+    <td width="67%">Holds the ALT key down until {ALTUP} is sent</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{SHIFTDOWN}</td>
+    <td width="67%">Holds the SHIFT key down until {SHIFTUP} is sent</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{CTRLDOWN}</td>
+    <td width="67%">Holds the CTRL key down until {CTRLUP} is sent</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{LWIN}</td>
+    <td width="67%">Left Windows key</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{a   down}{a up}<br>
+    <br></td>
+    <td>To hold any key down or then release it enclose the command in braces and add either up or down</td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">{DEL 4}</td>
+    <td width="67%">Single keys can also be repeated - Presses the DEL key 4 times</td>
+  </tr>
+</tbody></table>
+<p><strong>5. The Pause Function</strong><br>
+  Sometimes when stringing multiple macros to a single control you may 
+require to insert a short delay between key presses to do so use the 
+
+
+
+
+pause(number in milliseconds) command - please note no quotation marks 
+are required within the pause command</p><blockquote>
+  <p>Examples : &lt;a href='function pause(1000);' target="bottomFrame"&gt;<br>
+  Inserts a 1 second pause as 1000ms = 1 sec</p>
+  <p>Examples : &lt;a href='function macro("{SPACE}");pause(300);macro("{ENTER}")' target="bottomFrame"&gt;<br>
+  Sends the space key, then pauses 300ms, then sends the enter key</p>
+  </blockquote>
+<p></p>
+
+
+</body></html>

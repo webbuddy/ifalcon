@@ -1,0 +1,63 @@
+body{ 
+background-image: url(http://awesomeforce.net/afhome/wp-content/uploads/2011/04/awesome_header.gif);
+background-repeat: no-repeat;
+background-position: 13px 20px;
+padding-top:105px;
+max-width: 750px;
+font-family:Lucida Console;
+font-size:10pt;
+color:black;
+line-height:100%;
+margin-top:20pt;
+margin-left:10pt;
+margin-right:10pt;
+}
+h1{
+font-size:16pt;
+color:#1F4064;
+font-family:stencil;
+letter-spacing:5px;
+line-height:100%;
+padding-left:5px;
+}
+h2{
+font-size:10pt;
+color:red;
+font-family:sans-serif;
+text-transform:uppercase;
+}
+h3{
+font-size:16pt;
+color:black;
+font-family:sans-serif;
+}
+h4{
+font-size:14pt;
+color:black;
+font-family:sans-serif;
+}
+p {
+font-family: Lucida Console;
+line-height: 100%;
+width:750px;
+}
+table {
+border-collapse:collapse;
+width: 500px;
+border-width: 3px;
+border-color: #1F4064;
+border-style: solid;
+text-align: top;
+}
+tr {
+border:1px solid #C9C9C9;
+}
+td {
+padding:5px;
+line-height: 100%;
+font-family:Lucida Console;
+font-size:10pt;
+background:white;
+color:black;
+}
+

@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="http://www.sfcg.org/topup/javascripts/top_up-min.js"></script>
+<title>F16 Interactive Cockpit</title>
+</head>
+
+<script type="text/javascript">
+// This code prevents the swiping and shifting of the web browser window on iOS devices
+// The viewport meta above turns off pinch to zoom on iOS
+document.addEventListener('touchmove', function(e) { if (e.preventDefault) { e.preventDefault(); }});
+</script>
+
+<frameset rows="*,25" cols="100%" frameborder="no" border="0" framespacing="0" noresize="noresize" scrolling=no>
+  <frame src="cockpit.htm" name="mainFrame" id="mainFrame" title="mainFrame" />
+  <frame src="temp.htm" name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" title="bottomFrame" />
+</frameset>
+<noframes><body>
+</body>
+</noframes></html>
